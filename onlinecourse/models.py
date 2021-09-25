@@ -120,13 +120,13 @@ class Question(models.Model):
     text = models.CharField(max_length=550, default="question text")
     grade = models.FloatField(default=5.0)
 
-def is_get_score(self, selected_ids):
-    all_answers = self.choice_set.filter(is_correct=True).count()
-    selected_correct = self.choice_set.filter(is_correct=True, id__in=selected_ids).count()
-    if all_answers == selected_correct:
-        return True
-    else:
-        return False
+    def is_get_score(self, selected_ids):
+        all_answers = self.choice_set.filter(is_correct=True).count()
+        selected_correct = self.choice_set.filter(is_correct=True, id__in=selected_ids).count()
+        if all_answers == selected_correct:
+            return True
+        else:
+            return False
 
 #  <HINT> Create a Choice Model with:
     # Used to persist choice content for a question
